@@ -20,4 +20,18 @@ public class Jaar {
     public String toString() {
         return String.valueOf(jaar);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Jaar){
+            var ander =(Jaar) obj;
+            return jaar== ander.jaar;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return jaar;
+    }
 }

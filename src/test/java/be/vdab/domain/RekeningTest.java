@@ -1,6 +1,7 @@
 package be.vdab.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -18,5 +19,12 @@ class RekeningTest {
     void hetSaldoVanEenNieuweRekeningis0€() {
         //var rekening=new Rekening();
         assertThat(rekening.getSaldo().equals(BigDecimal.ZERO));
+    }
+
+    @Test
+    void hetGestortebedragMagNietNullZijn() {
+      assertThatIllegalArgumentException().isThrownBy(
+              ()->rekening.stort(BigDecimal.ZERO)
+      );
     }
 }
