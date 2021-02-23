@@ -14,11 +14,14 @@ class StatistiekTest {
         assertThat(Statistiek.getGemiddelde(new BigDecimal[]{BigDecimal.ZERO,
         BigDecimal.TEN})).isEqualByComparingTo("5");
     }
+
     @Test
     void hetGemiddeldeVanEenLegeVerzamelingKanJeNietBerekenen() {
         assertThatIllegalArgumentException().isThrownBy(
                 () -> Statistiek.getGemiddelde(new BigDecimal[] {}));
     }
+
+
     @Test
     void hetGemiddeldeVanNullKanJeNietBerekenen() {
         assertThatNullPointerException().isThrownBy(
